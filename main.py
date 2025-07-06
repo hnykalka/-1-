@@ -1,3 +1,11 @@
+def rsa():
+    print("= RSA Алгоритм =")
+    # заглушка
+
+def diff_hell():
+    print("= Протокол Диффи-Хеллмана =")
+    # заглушка
+
 def main():
     print("Выберите алгоритм:")
     print("1 - RSA")
@@ -5,10 +13,10 @@ def main():
     choice = input("Ваш выбор: ")
 
     if choice == "1":
-        print("Выбран RSA")
+        rsa()
     elif choice == "2":
-        print("Выбран Диффи-Хеллман")
+        diff_hell()
     else:
-        print("Неверный выбор!")
+        print("Неверный выбор :(")
 
 main()
