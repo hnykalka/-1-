@@ -1,8 +1,14 @@
 def main():
-    print("Криптографические алгоритмы")
+    print("Выберите алгоритм:")
     print("1 - RSA")
-print("2 - Диффи-Хеллман")
+    print("2 - Диффи-Хеллман")
+    choice = input("Ваш выбор: ")
 
+    if choice == "1":
+        print("Выбран RSA")
+    elif choice == "2":
+        print("Выбран Диффи-Хеллман")
+    else:
+        print("Неверный выбор!")
 
-if __name__ == "__main__":
-    main()
+main()
