@@ -3,6 +3,12 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
+def find_d(e, phi):
+    for d in range(1, phi):
+        if (e * d) % phi == 1:
+            return d
+    return None
+
 def rsa():
     print("=== RSA Алгоритм ===")
 
@@ -21,7 +27,15 @@ def rsa():
             break
         print("e не взаимно просто с phi! Попробуйте другое.")
 
-    print("Открытый ключ (e, n):", (e, n))
+    d = find_d(e, phi)
+    print("Закрытый ключ (d, n):", (d, n))
+
+    m = int(input("Введите число для шифрования (m): "))
+    c = (m ** e) % n
+    print("Зашифрованное сообщение:", c)
+
+    m_decrypted = (c ** d) % n
+    print("Расшифрованное сообщение:", m_decrypted)
 
 def diff_hell():
     print("= Протокол Диффи-Хеллмана =")
