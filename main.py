@@ -10,7 +10,7 @@ def find_d(e, phi):
     return None
 
 def rsa():
-    print("=== RSA Алгоритм ===")
+    print("= RSA Алгоритм =")
 
     p = int(input("Введите простое число p: "))
     q = int(input("Введите простое число q: "))
@@ -22,7 +22,7 @@ def rsa():
     print("phi =", phi)
 
     while True:
-        e = int(input("Введите e (взаимно просто с phi): "))
+        e = int(input("Введите e: "))
         if gcd(e, phi) == 1:
             break
         print("e не взаимно просто с phi! Попробуйте другое.")
@@ -39,19 +39,29 @@ def rsa():
 
 def diff_hell():
     print("= Протокол Диффи-Хеллмана =")
-    # заглушка
 
-def rsa():
-    print("=== RSA Алгоритм ===")
+    g = int(input("Введите g (основание): "))
+    p = int(input("Введите p (модуль): "))
+    a = int(input("Секретный ключ A: "))
+    b = int(input("Секретный ключ B: "))
 
-    p = int(input("Введите простое число p: "))
-    q = int(input("Введите простое число q: "))
+    A = (g ** a) % p
+    B = (g ** b) % p
 
-    n = p * q
-    phi = (p - 1) * (q - 1)
+    print("Открытый ключ A:", A)
+    print("Открытый ключ B:", B)
 
-    print("n =", n)
-    print("phi =", phi)
+    Ka = (B ** a) % p
+    Kb = (A ** b) % p
+
+    print("Общий ключ (вычислен A):", Ka)
+    print("Общий ключ (вычислен B):", Kb)
+
+    if Ka == Kb:
+        print("Общий секретный ключ:", Ka)
+    else:
+        print("Ключи не совпадают.")
+
 
 def main():
     print("Выберите алгоритм:")
